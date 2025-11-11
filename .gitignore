@@ -1,9 +1,26 @@
-# ROS2 workspace ignore rules
+# ROS2 workspace
 build/
 install/
 log/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python bytecode (if any tools/scripts)
 *.pyc
 __pycache__/
-*.swp
+
+# Compiled C/C++ objects
+*.o
+*.obj
+*.so
+*.a
+*.out
+
+# Logs / misc
+*.log
+.DS_Store
 .env
-.vscode/
