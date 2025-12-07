@@ -1,58 +1,84 @@
-IEEE Hardware Competition Codebase
+IEEE Hardware Competition Codebase (2026)
 
-This repository contains the code for our senior design project — the IEEE Hardware Competition Robot (2026).
+This repository contains the software stack for our senior design project — the IEEE SoutheastCon 2026 Hardware Competition Robot.
 The codebase is organized into three major components:
 
 ground_robot/ — firmware + high-level software for the ground robot
 
-drone/ — code for the aerial/drone subsystem
+drone/ — logic for the aerial subsystem
 
-tasks/ — logic for completing individual IEEE competition tasks
+tasks/ — implementations for individual IEEE competition tasks
 
-Branches
-
+Branching Workflow
 main
-Stable / competition-ready code. This must always be safe to flash and run.
+
+Stable, competition-ready code.
+This branch must always be safe to flash and run on hardware.
 
 dev
-Active development / integration branch where new features are tested.
 
+Active development and integration branch.
+New features are merged here before they are considered stable.
 
-Team agreed to push directly dev. All changes must go through a Pull Request that way we can recover code if needed.
+Team Rule: Pushes go to dev only. All changes must be made through a Pull Request so the team can track changes, review code, and recover previous versions if needed.
 
-Repo Layout
+Repository Layout
 ground_robot/ — Ground Robot Code
 
-Contains everything required for the main ground robot platform.
+Contains all low-level and high-level software for the main robot platform.
 
 firmware/
-Microcontroller code: motor control, encoders, sensors, PWM, PID loops.(Arduino Mega)
+
+Microcontroller (Arduino Mega) firmware, including:
+
+Motor control
+
+Encoders
+
+Sensors & input modules
+
+PWM generation
+
+PID control loops
 
 src/
-High-level logic such as line-tracking, camera/image processing, navigation, ROS2 nodes, and helper libraries.
+
+High-level control logic such as:
+
+Line-tracking algorithms
+
+Camera / image-processing modules
+
+Navigation logic
+
+ROS2 nodes
+
+Utility/helper libraries
 
 tests/
-Debug utilities, hardware tests, and subsystem validation code.
 
-Additional files (e.g., Testing.cpp, testpi.txt)
-Early testing files used during development.
+Used for hardware validation and debugging:
 
-drone/ — Aerial / UAV Code
+Motor & sensor tests
 
-Contains the drone-side logic used for aerial tasks.
+Prototype behavior scripts
 
-drone.cpp(template)
-Base module for drone communication and control.
+Temporary subsystem evaluation code
 
-src/
-Reserved for expanding drone features such as vision, positioning, and task handling.
+Additional files such as Testing.cpp or testpi.txt represent early development experiments.
+
+drone/ — Aerial / UAV Subsystem
+
+Contains the drone-side logic used for aerial support tasks.
+
+drone.cpp (template) — Base module for UAV communication and control
+
+src/ — Space reserved for future features such as onboard vision, pose estimation, or task handling
 
 tasks/ — Competition Task Logic
 
-Contains code dedicated to specific IEEE competition behaviors.
+Implements code that performs specific IEEE competition tasks.
 
-task.cpp(template)
-Central logic related to fulfilling competition tasks.
+task.cpp (template) — Core logic for interacting with task objectives
 
-src/
-Supporting modules for mission sequencing, scoring tasks, or multi-robot coordination.
+src/ — Supporting modules for mission sequencing, scoring, or multi-robot coordination
