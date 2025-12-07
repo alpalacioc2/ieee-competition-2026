@@ -105,7 +105,7 @@ private:
             double base_speed = 0.01;  // very slow
             double left_speed, right_speed;
 
-            // 🚨 HARD TURN MODE
+            //  HARD TURN MODE
             if (std::abs(dx) > 80)
             {
                 if (dx < 0)

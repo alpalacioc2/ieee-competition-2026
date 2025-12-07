@@ -1,6 +1,6 @@
 # IEEE Hardware Competition Codebase
 
-This repository contains the code for our IEEE hardware competition robot.
+This repository contains the code for our senior design project - IEEE hardware competition robot 2026.
 
 ## Branches
 - `main`  
