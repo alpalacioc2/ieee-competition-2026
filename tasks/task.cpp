@@ -3,27 +3,52 @@
 * Fitted for Arduino
 */
 
-//PIN LIST (as of 2/22/26)
-// PWM: 3,5,11
-// DIGTAL: 22-43, 47-53
+//PIN LIST (as of 2/22/26) ('*' are in use)
+// PWM: 3*,5*,11
+// DIGTAL: 22*,23*,24*,25*,26*,27-43, 47-53
 
 
-/* Crank Motor Pin Variables */
-const int crankIN1 = 22; //digital output
-const int crankIN2 = 23; //digital output
-const int crankEN = 3; //PWM output
+/* Crank Motor Pin and Global Variables */
+#define crankIN1 22 //digital output
+#define crankIN2 23 //digital output
+#define crankEN 3 //PWM output
 #define crankSpeed 75 //0 - 255, sets crank speed, motor will not move below 60
 #define crankDuration 2000 //2 sec spin time
 
-/* Push Motor Pin Variables*/
-const int pushIN1 = 24; //digital output
-const int pushIN2 = 25; //digital output
-const int pushEN = 5; //PWM output
+/* Push Motor Pin and Global Variables*/
+#define pushIN1 24 //digital output
+#define pushIN2 25 //digital output
+#define pushEN 5 //PWM output
 #define pushSpeed 200 //0 - 255, sets crank speed, motor will not move below 60
 #define pushDuration 5000 //5 sec spin time
 
+/* Flag Servo Pin and Global Variables*/
+//Run flagSetup() within the setup code!
+#include <Servo.h>
+Servo flagServo; //Create servo object
+#define flagPin 26 //digital output pin
+
+/* Flag Task Setup Function, call during setup code */
+void flagSetup(void)
+{
+  //Attach servo to pin
+  flagServo.attach(flagPin);
+  flagServo.write(0);
+}
+
+/* Flag Task Function, call when the flag needs to be dropped */
+//About 2 seconds of runtime
+void flagTaskControl(void)
+{
+  //Rotate servo to 180 degrees (drop 'flag')
+  flagServo.write(180);
+  delay(flagDelay);
+  //Reset position
+  flagServo.write(0);
+}
+
 /* Crank Task Function, call when the task needs to start */
-//About 3 seconds of runtime
+//About 4 seconds of runtime
 void crankTaskControl(void)
 {
   //Rotate motor CW
