@@ -3,17 +3,22 @@
 * Fitted for Arduino
 */
 
+//PIN LIST (as of 2/22/26)
+// PWM: 3,5,11
+// DIGTAL: 22-43, 47-53
+
+
 /* Crank Motor Pin Variables */
-const int crankIN1 = 6; //digital output
-const int crankIN2 = 7; //digital output
-const int crankEN = 9; //PWM output
+const int crankIN1 = 22; //digital output
+const int crankIN2 = 23; //digital output
+const int crankEN = 3; //PWM output
 #define crankSpeed 75 //0 - 255, sets crank speed, motor will not move below 60
 #define crankDuration 2000 //2 sec spin time
 
 /* Push Motor Pin Variables*/
-const int pushIN1 = 6; //digital output
-const int pushIN2 = 7; //digital output
-const int pushEN = 9; //PWM output
+const int pushIN1 = 24; //digital output
+const int pushIN2 = 25; //digital output
+const int pushEN = 5; //PWM output
 #define pushSpeed 200 //0 - 255, sets crank speed, motor will not move below 60
 #define pushDuration 5000 //5 sec spin time
 
